@@ -6,8 +6,8 @@ class Git::Simple {
     has Str $.cwd = '.';
 
     method branch-info {
-        my $proc = run <git -C>, $.cwd, <status --porcelain -b>, :out;
-        Git::Simple::Parse.new.status(out => $proc.out.slurp-rest.Str.lines[0]);
+        my $proc = run <git -C>, $.cwd, <status --porcelain -b>, :out, :err;
+        Git::Simple::Parse.new.status(out => $proc.out.slurp-rest);
     }
 
 }

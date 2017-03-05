@@ -4,7 +4,7 @@ class Git::Simple::Parse {
 
     method status(Str :$out!) returns Hash {
         my %res;
-        if $out ~~ / ^\#**2 \s
+        if $out && $out.Str.lines[0] ~~ / ^\#**2 \s
             $<local> = [ \S+ ]  # local branch
             \.**3
             $<remote> = [ \S+ ] # remote branch
