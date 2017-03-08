@@ -5,7 +5,7 @@ use Git::Simple;
 
 plan 2;
 
-my $dir = $*TMPDIR ~ 'test-git-simple-20-git-detached';
+my $dir = $*TMPDIR ~ '/test-git-simple-20-git-detached';
 mkdir $dir;
 my $proc = run <git -C>, $dir, <init>, :out;
 $proc.out.close;
